@@ -1,3 +1,120 @@
 .modal {
   visibility: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 16px;
+  line-height: 1.25;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__is-opened {
+  visibility: visible;
+}
+
+.modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 496px;
+  margin: 0;
+  padding: 20px 28px 36px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.modal__title {
+  margin: 0;
+  margin-bottom: 24px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  background: url("../../images/close-icon.svg") no-repeat center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.modal__label {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.modal__input {
+  display: block;
+  border: none;
+  border-bottom: 1px solid #000;
+  color: rgba(0, 0, 0, 0.5);
+  outline: none;
+  width: 100%;
+}
+
+.modal__input:not(:placeholder-shown) {
+  color: #000;
+}
+
+.modal__radio-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__radio-legend {
+  margin-bottom: 14px;
+}
+
+.modal__radio-label {
+  accent-color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  gap: 8px;
+}
+
+.modal__radio-label:has(.modal__radio-input:checked) {
+  color: rgba(0, 0, 0, 1);
+  accent-color: rgba(0, 0, 0, 1);
+}
+
+.modal__radio-input {
+  cursor: pointer;
+}
+
+.modal__add-btn {
+  max-width: 124px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 8px 16px;
 }

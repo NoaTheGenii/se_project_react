@@ -1,22 +1,31 @@
 import "./Header.css";
+import logo from "../../images/logo.svg";
+import avatar from "../../images/avatar.svg";
 
-function Header() {
+function Header({ handleAddClick, weatherData }) {
+  const currentDate = new Date().toLocaleString("default", {
+    month: "long",
+    day: "numeric",
+  });
   return (
-    <header>
-      <h1>Welcome to My Website</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="#addClothes">Add clothes</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
+    <header className="header">
+      <div className="header__logo-and-data">
+        <img src={logo} alt="logo" className="header__logo" />
+        <p className="header__date-and-location">
+          {currentDate}, {weatherData.city}
+        </p>
+      </div>
+      <div className="header__button-and-user">
+        <button
+          type="button"
+          className="header__add-clothes-btn"
+          onClick={handleAddClick}
+        >
+          + Add clothes
+        </button>
+        <p className="header__username">Terrence Tegegne</p>
+        <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
+      </div>
     </header>
   );
 }
