@@ -6,5 +6,7 @@ The idea of the application is pretty simple - we make a call to an API, which t
 
 ## Links
 
-- [Project Design](https://github.com/user-attachments/assets/4b9563f7-d41a-498c-9362-b62f33b3133c)
+- Project Design
+
+<img width="1914" height="876" alt="Screenshot 2025-09-06 213314" src="https://github.com/user-attachments/assets/2bd68b9b-f742-4d0a-b0ac-d52ade7cec45" />
 
