@@ -3,6 +3,7 @@
 ## About the project
 
 The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user.
+
 There are also popups to view the clothing better and even to add new articles of clothing. The add-clothing modal is not set up to process requests yet, but the modal does pop up and all the buttons are neatly aligned. The functionality should be set up on the next commit.
 
 ## Link to project
