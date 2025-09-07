@@ -6,4 +6,5 @@ The idea of the application is pretty simple - we make a call to an API, which t
 
 ## Links
 
-- [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
+- [Project Design](https://github.com/user-attachments/assets/4b9563f7-d41a-498c-9362-b62f33b3133c)
+
