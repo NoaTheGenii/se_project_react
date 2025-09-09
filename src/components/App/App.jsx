@@ -34,6 +34,9 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+  const preventContentClose = (evt) => {
+    evt.stopPropagation();
+  };
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -46,6 +49,21 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    const exitModalByEscape = (evt) => {
+      if (evt.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    if (activeModal) {
+      document.addEventListener("keydown", exitModalByEscape);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", exitModalByEscape);
+    };
+  }, [activeModal]);
+
   return (
     <div className="page">
       <Header handleAddClick={handleAddClick} weatherData={weatherData} />
@@ -54,7 +72,8 @@ function App() {
         buttonText="Add garment"
         title="New garment"
         activeModal={activeModal}
-        handleCloseClick={closeActiveModal}
+        onClose={closeActiveModal}
+        handleContentClick={preventContentClose}
       >
         <label htmlFor="name" className="modal__label">
           Name{" "}
@@ -114,6 +133,7 @@ function App() {
         onClose={closeActiveModal}
         card={selectedCard}
         activeModal={activeModal}
+        handleContentClick={preventContentClose}
       />
       <Footer />
     </div>

@@ -7,7 +7,6 @@ function WeatherCard({ weatherData }) {
       type.condition === weatherData.condition && type.day === weatherData.isDay
     );
   });
-  console.log(weatherData.condition, weatherData.isDay);
   return (
     <section className="weather-card">
       <img className="weather-card__image" src={weatherType[0].url}></img>
