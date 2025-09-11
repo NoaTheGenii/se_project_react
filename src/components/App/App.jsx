@@ -7,7 +7,11 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
-import { APIkey, coordinates } from "../../utils/constants";
+import {
+  apiKey,
+  coordinates,
+  defaultClothingItems,
+} from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 
 function App() {
@@ -15,12 +19,13 @@ function App() {
     type: "",
     temp: { F: 75, C: 24 },
     city: "",
-    condition: "clear",
+    condition: "cloudy",
     isDay: true,
-    url: "../../images/day/sunny.svg",
+    url: "../../images/day/cloudy.svg",
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -39,14 +44,12 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -67,11 +70,15 @@ function App() {
   return (
     <div className="page">
       <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-      <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+      <Main
+        weatherData={weatherData}
+        handleCardClick={handleCardClick}
+        clothingItems={clothingItems}
+      />
       <ModalWithForm
         buttonText="Add garment"
         title="New garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
         handleContentClick={preventContentClose}
       >
@@ -132,7 +139,7 @@ function App() {
       <ItemModal
         onClose={closeActiveModal}
         card={selectedCard}
-        activeModal={activeModal}
+        isOpen={activeModal === "preview"}
         handleContentClick={preventContentClose}
       />
       <Footer />

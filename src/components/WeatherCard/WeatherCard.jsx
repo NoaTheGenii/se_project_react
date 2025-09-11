@@ -9,7 +9,11 @@ function WeatherCard({ weatherData }) {
   });
   return (
     <section className="weather-card">
-      <img className="weather-card__image" src={weatherType[0].url}></img>
+      <img
+        className="weather-card__image"
+        src={weatherType.length > 0 ? weatherType[0].url : weatherTypes[1].url}
+        alt="Current weather"
+      />
       <p className="weather-card__temp">{weatherData.temp.F}&deg;F</p>
     </section>
   );
