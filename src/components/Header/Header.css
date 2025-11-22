@@ -28,7 +28,7 @@
   margin: 0;
 }
 
-.header__button-and-user {
+.header__buttons-and-user {
   display: flex;
   align-items: center;
   gap: 20px;

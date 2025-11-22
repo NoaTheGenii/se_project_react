@@ -13,7 +13,6 @@
 
 .item-card__image {
   width: 323px;
-  height: 326px;
   border-radius: 19px;
   object-fit: contain;
   cursor: pointer;
